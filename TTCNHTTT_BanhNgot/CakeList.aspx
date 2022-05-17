@@ -13,6 +13,10 @@
 
        </ItemTemplate>
 
+       <%--   <a href='GioHang.aspx?masp=<%# Eval("masp") %>&name=<%# Eval("tensp")
+                   %>&image=<%#Eval("anhminhhoa")
+                   %>&giaban=<%# Eval("giaban") %>&action=add' class="button">Mua hàng</a>--%>
+
    </asp:TemplateField>
       <%--      <asp:BoundField DataField="mota" HeaderText="mota" SortExpression="mota" />--%>
             <asp:BoundField DataField="madm" HeaderText="Mã Danh M&#7909;c" SortExpression="madm" />
