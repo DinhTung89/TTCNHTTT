@@ -9,12 +9,15 @@ namespace TTCNHTTT_BanhNgot
 {
     public partial class Edit : System.Web.UI.Page
     {
-       
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
 
         protected void FormView1_ItemUpdating(object sender, FormViewUpdateEventArgs e)
         {
             FileUpload f = (FileUpload)FormView1.FindControl("FileUpload1");
-            String path = Server.MapPath("~/images/");
+            string path = Server.MapPath("~/images/");
             f.PostedFile.SaveAs(path + f.FileName);
             SqlDataSource1.UpdateParameters["anhminhhoa"].DefaultValue = "/images/" + f.FileName;
         }

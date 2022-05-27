@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UI.master.cs" Inherits="TTCNHTTT_BanhNgot.UI" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UI.master.cs" Inherits="TTCNHTTT_BanhNgot.UI" %>
 	<!-- HTML ! -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -48,12 +48,12 @@
     <li>        </li>
     
      
-    <li><a href="#">Item two</a></li>
-    <li><a class="active" href="#">Active link</a></li>
-    <li><a href="#">Item four</a></li>
-    <li><a href="#">Item five</a></li>
-    <li><a href="#">Item six</a></li>
-    <li><a href="#">Item seven</a></li>
+    <li><a href="Add.aspx">Thêm Sản Phẩm</a></li>
+    <li><a class="active" href='GioHang.aspx'>Giỏ Hàng</a></li>
+    <li><a class="active" href='CakeList.aspx'>Danh Mục</a> </li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
   </ul>
 </div>
 <div id="gutter"></div>
@@ -100,7 +100,7 @@
 </div>
 
 
-<div id="footer">  � Design by tungdc</div>
+<div id="footer">  © Design by tungdc</div>
     </form>
 </body>
 </html>

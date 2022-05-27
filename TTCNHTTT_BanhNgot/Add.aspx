@@ -71,9 +71,21 @@
             <br />
             <br />
       
-            Mã Danh M&#7909;c:&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="tendm" DataValueField="madm">
+            Mã Danh M&#7909;c:&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="tendm" DataValueField="madm" SelectedValue='<%# Bind("madm") %>'>
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" SelectCommand="SELECT * FROM [danhmuc]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" DeleteCommand="DELETE FROM [danhmuc] WHERE [madm] = @madm" InsertCommand="INSERT INTO [danhmuc] ([madm], [tendm]) VALUES (@madm, @tendm)" SelectCommand="SELECT * FROM [danhmuc]" UpdateCommand="UPDATE [danhmuc] SET [tendm] = @tendm WHERE [madm] = @madm">
+                <DeleteParameters>
+                    <asp:Parameter Name="madm" Type="String" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="madm" Type="String" />
+                    <asp:Parameter Name="tendm" Type="String" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="tendm" Type="String" />
+                    <asp:Parameter Name="madm" Type="String" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
           
             <br />
             <br />
@@ -117,6 +129,7 @@
         </ItemTemplate>
     </asp:FormView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" DeleteCommand="DELETE FROM [sanpham] WHERE [masp] = @masp" InsertCommand="INSERT INTO [sanpham] ([masp], [tensp], [mausac], [giaban], [soluongco], [anhminhhoa], [mota], [madm]) VALUES (@masp, @tensp, @mausac, @giaban, @soluongco, @anhminhhoa, @mota, @madm)" SelectCommand="SELECT * FROM [sanpham]" UpdateCommand="UPDATE [sanpham] SET [tensp] = @tensp, [mausac] = @mausac, [giaban] = @giaban, [soluongco] = @soluongco, [anhminhhoa] = @anhminhhoa, [mota] = @mota, [madm] = @madm WHERE [masp] = @masp">
+       
         <DeleteParameters>
             <asp:Parameter Name="masp" Type="String" />
         </DeleteParameters>

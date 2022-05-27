@@ -1,34 +1,50 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI.Master" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="TTCNHTTT_BanhNgot.Edit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="masp" DataSourceID="SqlDataSource1" style="font-weight: 700" DefaultMode="Edit" OnItemUpdating="FormView1_ItemUpdating">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="masp" DataSourceID="SqlDataSource1" DefaultMode="Edit" OnItemUpdating="FormView1_ItemUpdating" Width="544px">
         <EditItemTemplate>
-            Mã S&#7843;n Ph&#7849;m:
+            masp:
             <asp:Label ID="maspLabel1" runat="server" Text='<%# Eval("masp") %>' />
             <br />
-            Tên S&#7843;n Ph&#7849;m:
+            tensp:
             <asp:TextBox ID="tenspTextBox" runat="server" Text='<%# Bind("tensp") %>' />
             <br />
-            Màu S&#7855;c:
+            mausac:
             <asp:TextBox ID="mausacTextBox" runat="server" Text='<%# Bind("mausac") %>' />
             <br />
-            Giá Bán:
+            giaban:
             <asp:TextBox ID="giabanTextBox" runat="server" Text='<%# Bind("giaban") %>' />
             <br />
-            S&#7889; L&#432;&#7907;ng Có:
+            soluongco:
             <asp:TextBox ID="soluongcoTextBox" runat="server" Text='<%# Bind("soluongco") %>' />
             <br />
-            &#7842;nh Minh H&#7885;a:
-            <asp:FileUpload ID="FileUpload1" runat="server" />
+            anhminhhoa:
+            
+            <asp:FileUpload ID="FileUpload1" runat="server" Height="40px" Width="230px" />
             <br />
-            Mô T&#7843;:
+            mota:
             <asp:TextBox ID="motaTextBox" runat="server" Text='<%# Bind("mota") %>' />
             <br />
-            Mã Danh M&#7909;c:
-            <asp:TextBox ID="madmTextBox" runat="server" Text='<%# Bind("madm") %>' />
+            madm:
+            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="tendm" DataValueField="madm" SelectedValue='<%# Bind("madm") %>'>
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" DeleteCommand="DELETE FROM [danhmuc] WHERE [madm] = @original_madm AND [tendm] = @original_tendm" InsertCommand="INSERT INTO [danhmuc] ([madm], [tendm]) VALUES (@madm, @tendm)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [danhmuc]" UpdateCommand="UPDATE [danhmuc] SET [tendm] = @tendm WHERE [madm] = @original_madm AND [tendm] = @original_tendm">
+                <DeleteParameters>
+                    <asp:Parameter Name="original_madm" Type="String" />
+                    <asp:Parameter Name="original_tendm" Type="String" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="madm" Type="String" />
+                    <asp:Parameter Name="tendm" Type="String" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="tendm" Type="String" />
+                    <asp:Parameter Name="original_madm" Type="String" />
+                    <asp:Parameter Name="original_tendm" Type="String" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
             <br />
-            &nbsp;&nbsp;
-            <asp:Button CssClass="button-33"  ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button CssClass="button-33" ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+&nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
         <InsertItemTemplate>
             masp:
@@ -83,13 +99,47 @@
             madm:
             <asp:Label ID="madmLabel" runat="server" Text='<%# Bind("madm") %>' />
             <br />
-
+            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" />
+            &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" />
+            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" 
-        SelectCommand="SELECT * FROM [sanpham] Where masp=@masp">
-          <SelectParameters>
-            <asp:QueryStringParameter Name="masp" Type="String" QueryStringField="masp" />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" DeleteCommand="DELETE FROM [sanpham] WHERE [masp] = @original_masp AND [tensp] = @original_tensp AND [mausac] = @original_mausac AND (([giaban] = @original_giaban) OR ([giaban] IS NULL AND @original_giaban IS NULL)) AND (([soluongco] = @original_soluongco) OR ([soluongco] IS NULL AND @original_soluongco IS NULL)) AND (([anhminhhoa] = @original_anhminhhoa) OR ([anhminhhoa] IS NULL AND @original_anhminhhoa IS NULL)) AND (([mota] = @original_mota) OR ([mota] IS NULL AND @original_mota IS NULL)) AND (([madm] = @original_madm) OR ([madm] IS NULL AND @original_madm IS NULL))" InsertCommand="INSERT INTO [sanpham] ([masp], [tensp], [mausac], [giaban], [soluongco], [anhminhhoa], [mota], [madm]) VALUES (@masp, @tensp, @mausac, @giaban, @soluongco, @anhminhhoa, @mota, @madm)" OldValuesParameterFormatString="original_{0}" 
+        SelectCommand="SELECT * FROM [sanpham] Where masp = @masp"
+        UpdateCommand="UPDATE [sanpham] SET [tensp] = @tensp, [mausac] = @mausac, [giaban] = @giaban, [soluongco] = @soluongco, [anhminhhoa] = @anhminhhoa, [mota] = @mota, [madm] = @madm WHERE [masp] = @masp">
+       
+        <SelectParameters>
+                <asp:QueryStringParameter Name="masp" Type="String" QueryStringField="masp" />
         </SelectParameters>
-    </asp:SqlDataSource>   
+        <DeleteParameters>
+            <asp:Parameter Name="original_masp" Type="String" />
+            <asp:Parameter Name="original_tensp" Type="String" />
+            <asp:Parameter Name="original_mausac" Type="String" />
+            <asp:Parameter Name="original_giaban" Type="Int32" />
+            <asp:Parameter Name="original_soluongco" Type="Int32" />
+            <asp:Parameter Name="original_anhminhhoa" Type="String" />
+            <asp:Parameter Name="original_mota" Type="String" />
+            <asp:Parameter Name="original_madm" Type="String" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="masp" Type="String" />
+            <asp:Parameter Name="tensp" Type="String" />
+            <asp:Parameter Name="mausac" Type="String" />
+            <asp:Parameter Name="giaban" Type="Int32" />
+            <asp:Parameter Name="soluongco" Type="Int32" />
+            <asp:Parameter Name="anhminhhoa" Type="String" />
+            <asp:Parameter Name="mota" Type="String" />
+            <asp:Parameter Name="madm" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="tensp" Type="String" />
+            <asp:Parameter Name="mausac" Type="String" />
+            <asp:Parameter Name="giaban" Type="Int32" />
+            <asp:Parameter Name="soluongco" Type="Int32" />
+            <asp:Parameter Name="anhminhhoa" Type="String" />
+            <asp:Parameter Name="mota" Type="String" />
+            <asp:Parameter Name="madm" Type="String" />
+           
+        </UpdateParameters>
+    </asp:SqlDataSource>
 </asp:Content>
