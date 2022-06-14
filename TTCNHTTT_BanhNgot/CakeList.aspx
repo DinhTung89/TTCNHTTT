@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI.Master" AutoEventWireup="true" CodeBehind="CakeList.aspx.cs" Inherits="TTCNHTTT_BanhNgot.CakeList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#99FF99" BorderColor="#FFCC00" BorderStyle="Solid" BorderWidth="5px" CellPadding="3" CellSpacing="2" DataKeyNames="masp" DataSourceID="SqlDataSource1" Width="900px" CaptionAlign="Right" style="font-weight: 700; margin-left: 0px;">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#99FF99" BorderColor="#FFCC00" BorderStyle="Solid" BorderWidth="5px" CellPadding="3" CellSpacing="2" DataKeyNames="masp" DataSourceID="SqlDataSource1" Width="742px" CaptionAlign="Right" style="font-weight: 700; margin-left: 0px;">
         <Columns>
             <asp:BoundField DataField="masp" HeaderText="Mã S&#7843;n Ph&#7849;m" ReadOnly="True" SortExpression="masp" />
             <asp:BoundField DataField="tensp" HeaderText="Tên S&#7843;n Ph&#7849;m" SortExpression="tensp" />

@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI.Master" AutoEventWireup="true" CodeBehind="MenuCake.aspx.cs" Inherits="TTCNHTTT_BanhNgot.MenuCake" %>
+﻿
+<%@ Page Title="" Language="C#" MasterPageFile="~/UI.Master" AutoEventWireup="true" CodeBehind="MenuCake.aspx.cs" Inherits="TTCNHTTT_BanhNgot.MenuCake" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="masp" DataSourceID="SqlDataSource1" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderStyle="Solid" BorderWidth="10px" CellPadding="30" CellSpacing="30" ForeColor="Black" GridLines="Both" RepeatColumns="2" UseAccessibleHeader="True" style="font-weight: 700">
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="masp" DataSourceID="SqlDataSource1" BackColor="#FFFFCC" BorderColor="#FFCC66" BorderStyle="Solid" BorderWidth="10px" CellPadding="30" CellSpacing="30" ForeColor="Black" GridLines="Both" RepeatColumns="2" UseAccessibleHeader="True" style="font-weight: 700; margin-right: 69px;" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" Width="679px">
         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
         <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
         <ItemStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
@@ -28,6 +29,7 @@
         <br />
         <strong>Mã DM:</strong>
         <asp:Label ID="madmLabel" runat="server" Text='<%# Eval("madm") %>' />
+
         <br />
 <br />
     </ItemTemplate>

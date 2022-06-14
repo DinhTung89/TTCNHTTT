@@ -2,78 +2,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="masp" DataSourceID="SqlDataSource1" DefaultMode="Edit" OnItemUpdating="FormView1_ItemUpdating" Width="544px">
         <EditItemTemplate>
-            masp:
+            Mã SP:
             <asp:Label ID="maspLabel1" runat="server" Text='<%# Eval("masp") %>' />
             <br />
-            tensp:
+            Tên SP:
             <asp:TextBox ID="tenspTextBox" runat="server" Text='<%# Bind("tensp") %>' />
-            <br />
-            mausac:
+            Màu S&#7855;c:
             <asp:TextBox ID="mausacTextBox" runat="server" Text='<%# Bind("mausac") %>' />
             <br />
-            giaban:
+            Giá Bán:
             <asp:TextBox ID="giabanTextBox" runat="server" Text='<%# Bind("giaban") %>' />
             <br />
-            soluongco:
+            S&#7889; L&#432;&#7907;ng Có:
             <asp:TextBox ID="soluongcoTextBox" runat="server" Text='<%# Bind("soluongco") %>' />
             <br />
-            anhminhhoa:
+            &#7842;nh Minh H&#7885;a:
             
-            <asp:FileUpload ID="FileUpload1" runat="server" Height="40px" Width="230px" />
+            <asp:FileUpload ID="FileUpload1" runat="server" />
             <br />
-            mota:
+            Mô t&#7843;:
             <asp:TextBox ID="motaTextBox" runat="server" Text='<%# Bind("mota") %>' />
             <br />
-            madm:
-            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="tendm" DataValueField="madm" SelectedValue='<%# Bind("madm") %>'>
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" DeleteCommand="DELETE FROM [danhmuc] WHERE [madm] = @original_madm AND [tendm] = @original_tendm" InsertCommand="INSERT INTO [danhmuc] ([madm], [tendm]) VALUES (@madm, @tendm)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [danhmuc]" UpdateCommand="UPDATE [danhmuc] SET [tendm] = @tendm WHERE [madm] = @original_madm AND [tendm] = @original_tendm">
-                <DeleteParameters>
-                    <asp:Parameter Name="original_madm" Type="String" />
-                    <asp:Parameter Name="original_tendm" Type="String" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="madm" Type="String" />
-                    <asp:Parameter Name="tendm" Type="String" />
-                </InsertParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="tendm" Type="String" />
-                    <asp:Parameter Name="original_madm" Type="String" />
-                    <asp:Parameter Name="original_tendm" Type="String" />
-                </UpdateParameters>
-            </asp:SqlDataSource>
-            <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-&nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+      
+        
+            <asp:Button CssClass="button-33" ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+&nbsp;<asp:Button CssClass="button-33"   ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
-        <InsertItemTemplate>
-            masp:
-            <asp:TextBox ID="maspTextBox" runat="server" Text='<%# Bind("masp") %>' />
-            <br />
-            tensp:
-            <asp:TextBox ID="tenspTextBox" runat="server" Text='<%# Bind("tensp") %>' />
-            <br />
-            mausac:
-            <asp:TextBox ID="mausacTextBox" runat="server" Text='<%# Bind("mausac") %>' />
-            <br />
-            giaban:
-            <asp:TextBox ID="giabanTextBox" runat="server" Text='<%# Bind("giaban") %>' />
-            <br />
-            soluongco:
-            <asp:TextBox ID="soluongcoTextBox" runat="server" Text='<%# Bind("soluongco") %>' />
-            <br />
-            anhminhhoa:
-            <asp:TextBox ID="anhminhhoaTextBox" runat="server" Text='<%# Bind("anhminhhoa") %>' />
-            <br />
-            mota:
-            <asp:TextBox ID="motaTextBox" runat="server" Text='<%# Bind("mota") %>' />
-            <br />
-            madm:
-            <asp:TextBox ID="madmTextBox" runat="server" Text='<%# Bind("madm") %>' />
-            <br />
-            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </InsertItemTemplate>
+  
         <ItemTemplate>
             masp:
             <asp:Label ID="maspLabel" runat="server" Text='<%# Eval("masp") %>' />

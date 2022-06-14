@@ -52,6 +52,7 @@ float : left;
 width : 18%;
 margin-bottom : 1em;
 padding-right : 1%;
+    height: 283px;
 }
 #col2 {
 float : left;
@@ -63,6 +64,16 @@ border-right : 1px dashed #dda875;
 padding-right : 3%;
 padding-left : 3%;
  
+}
+#col5 {
+	float: left;
+	width: 53%;
+	margin-left: 2%;
+	margin-bottom: 1em;
+	border-left: 1px dashed #dda875;
+	border-right: 1px dashed #dda875;
+	padding-right: 3%;
+	padding-left: 3%;
 }
 #col3 {
 float : right;
@@ -177,6 +188,10 @@ float : right;
 padding : 10px;
 border : 1px solid #aaa;
 margin-left : 10px;
+}
+.img-resize {
+width:300px;
+height:300px;
 }
 #form {
 	background-color: #dfd739;

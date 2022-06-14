@@ -17,7 +17,7 @@ namespace TTCNHTTT_BanhNgot
         protected void FormView1_ItemUpdating(object sender, FormViewUpdateEventArgs e)
         {
             FileUpload f = (FileUpload)FormView1.FindControl("FileUpload1");
-            string path = Server.MapPath("~/images/");
+            String path = Server.MapPath("~/images/");
             f.PostedFile.SaveAs(path + f.FileName);
             SqlDataSource1.UpdateParameters["anhminhhoa"].DefaultValue = "/images/" + f.FileName;
         }

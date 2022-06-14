@@ -51,7 +51,7 @@
     <li><a href="Add.aspx">Thêm Sản Phẩm</a></li>
     <li><a class="active" href='GioHang.aspx'>Giỏ Hàng</a></li>
     <li><a class="active" href='CakeList.aspx'>Danh Mục</a> </li>
-    <li><a href="#"></a></li>
+    <li><a href="#"></a></li> 
     <li><a href="#"></a></li>
     <li><a href="#"></a></li>
   </ul>
@@ -60,8 +60,9 @@
 <div id="col1">
   <h2>Menu</h2>
   <div id="navcontainer">
+      
     <ul id="navlist">
-
+        <img class="img-resize" src="images/anh5.jpg"  height="200px" width="200px"/>
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
          <ItemTemplate>
                         <li>
@@ -75,27 +76,21 @@
     </ul>
   </div>
 </div>
-        <div id="col3">
-  <h2>Resources</h2>
-  <ul>
-    <li><a href="#">Style Gal</a></li>
-    <li></li>
-  </ul>
-    <fieldset>
-    <legend>Search</legend>
-    <div> <span>
-      <label for="txtsearch"> <img src="img/search.gif" alt="search" /> :search</label>
-      </span> <span>
-      <input type="text" value="demo only" name="txtsearch" title="Text input: search" id="txtsearch" size="25" />
-      </span> </div>
-    </fieldset>
-  </div>
 <div id="col2">
   <h2>Welcome to <span style="color:#F17327;">'Love Bakery'</span> </h2>
   <h2> 
   </h2>
 
   <p>  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>     </p>
+
+</div>
+        <div id="col3">
+  <h2>Welcome to <span style="color:#F17327;">'Love Bakery'</span> </h2>
+  <h2> 
+
+  </h2>
+       <img class="img-resize" src="images/trang.jpg"  height="200px" width="200px"/>
+  
 
 </div>
 
