@@ -102,14 +102,12 @@
   <ItemGroup>
     <Compile Include="Add.aspx.cs">
       <DependentUpon>Add.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="CakeList.aspx.cs">
       <DependentUpon>CakeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CakeList.aspx.designer.cs">
       <DependentUpon>CakeList.aspx</DependentUpon>
@@ -117,7 +115,6 @@
     <Compile Include="CartItem.cs" />
     <Compile Include="Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
@@ -140,7 +137,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI.Master.cs">
       <DependentUpon>UI.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI.Master.designer.cs">
       <DependentUpon>UI.Master</DependentUpon>
