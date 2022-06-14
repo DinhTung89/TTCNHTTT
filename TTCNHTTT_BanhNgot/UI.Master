@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UI.master.cs" Inherits="TTCNHTTT_BanhNgot.UI" %>
+	<!-- HTML ! -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<style>
+
+
+
+
+.button-33 {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-33:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+</style>
+<head>
+<title>*Love Bakery*</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  
+    <form id="form1" runat="server">
+<div id="header">
+  <h1>Love Bakery</h1>
+</div>
+<div id="topnav">
+  <ul id="topnavlist">
+    <li>        </li>
+    
+     
+    <li><a href="Add.aspx">Thêm Sản Phẩm</a></li>
+    <li><a class="active" href='GioHang.aspx'>Giỏ Hàng</a></li>
+    <li><a class="active" href='CakeList.aspx'>Danh Mục</a> </li>
+    <li><a href="#"></a></li> 
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+  </ul>
+</div>
+<div id="gutter"></div>
+<div id="col1">
+  <h2>Menu</h2>
+  <div id="navcontainer">
+      
+    <ul id="navlist">
+        <img class="img-resize" src="images/anh5.jpg"  height="200px" width="200px"/>
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+         <ItemTemplate>
+                        <li>
+                            <a href='MenuCake.aspx?madm=<%#Eval("madm")%>'> <%#Eval("tendm")%></a>
+                        </li>
+                </ItemTemplate>
+          </asp:Repeater>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BanhNgotabcConnectionString %>" SelectCommand="SELECT * FROM [danhmuc]"></asp:SqlDataSource>
+      
+     
+    </ul>
+  </div>
+</div>
+<div id="col2">
+  <h2>Welcome to <span style="color:#F17327;">'Love Bakery'</span> </h2>
+  <h2> 
+  </h2>
+
+  <p>  <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>     </p>
+
+</div>
+        <div id="col3">
+  <h2>Welcome to <span style="color:#F17327;">'Love Bakery'</span> </h2>
+  <h2> 
+
+  </h2>
+       <img class="img-resize" src="images/trang.jpg"  height="200px" width="200px"/>
+  
+
+</div>
+
+
+<div id="footer">  © Design by tungdc</div>
+    </form>
+</body>
+</html>
+
+
+
